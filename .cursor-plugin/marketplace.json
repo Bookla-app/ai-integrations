@@ -1,0 +1,19 @@
+{
+  "name": "bookla",
+  "owner": {
+    "name": "Bookla",
+    "email": "support@bookla.com"
+  },
+  "metadata": {
+    "description": "Bookla plugins for Cursor: manage your booking business from the agent.",
+    "version": "1.0.0",
+    "pluginRoot": "cursor"
+  },
+  "plugins": [
+    {
+      "name": "bookla",
+      "source": "bookla",
+      "description": "Manage bookings, availability, services, clients, pricing, gift cards, subscriptions and reports in your Bookla merchant account."
+    }
+  ]
+}

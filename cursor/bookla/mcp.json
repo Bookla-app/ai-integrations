@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "bookla": {
+      "url": "https://mcp.bookla.com/mcp",
+      "auth": {
+        "CLIENT_ID": "bookla-cursor"
+      }
+    }
+  }
+}

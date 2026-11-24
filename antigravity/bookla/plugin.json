@@ -1,0 +1,22 @@
+{
+  "$schema": "https://antigravity.google/schemas/v1/plugin.json",
+  "name": "bookla",
+  "displayName": "Bookla",
+  "version": "1.0.0",
+  "description": "Manage bookings, availability, services, clients, pricing, gift cards, subscriptions and reports in your Bookla merchant account.",
+  "logo": "assets/logo.png",
+  "suggestedPrompts": [
+    "What bookings do I have today?",
+    "What times are free for the tennis court next Friday?",
+    "Show last month's accounting report"
+  ],
+  "author": {
+    "name": "Bookla",
+    "email": "support@bookla.com",
+    "url": "https://bookla.com"
+  },
+  "homepage": "https://bookla.com/platform/",
+  "repository": "https://github.com/Bookla-app/ai-integrations",
+  "license": "MIT",
+  "keywords": ["bookla", "bookings", "scheduling", "appointments", "reservations", "mcp"]
+}

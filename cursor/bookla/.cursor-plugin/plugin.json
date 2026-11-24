@@ -1,0 +1,15 @@
+{
+  "name": "bookla",
+  "displayName": "Bookla",
+  "version": "1.0.0",
+  "description": "Manage bookings, availability, services, clients, pricing, gift cards, subscriptions and reports in your Bookla merchant account.",
+  "author": {
+    "name": "Bookla",
+    "email": "support@bookla.com"
+  },
+  "homepage": "https://bookla.com/platform/",
+  "repository": "https://github.com/Bookla-app/ai-integrations",
+  "license": "MIT",
+  "keywords": ["bookla", "bookings", "scheduling", "appointments", "reservations", "mcp"],
+  "logo": "assets/logo.png"
+}
