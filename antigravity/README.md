@@ -27,4 +27,4 @@ There's no client to register. Antigravity uses Client ID Metadata Documents (CI
 - `client_id`: `https://antigravity.google/oauth/client-metadata.json`
 - redirect: `https://antigravity.google/oauth-callback`. That page shows a code, which the user pastes back into Antigravity.
 
-The Bookla authorization server accepts it once `antigravity.google` is listed in `MCP_OAUTH_CIMD_ALLOWED_HOSTS` in every region.
+The Bookla authorization server allows `antigravity.google` as a metadata host in every region.

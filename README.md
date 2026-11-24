@@ -7,6 +7,30 @@ All of them connect to the same hosted **Bookla merchant MCP server**:
 - Endpoint: `https://mcp.bookla.com/mcp` (Streamable HTTP)
 - Auth: OAuth 2.1 with PKCE. The merchant signs in with their Bookla account and picks the companies to share and read-only or read-write access. No API key is stored in the client. EU and US accounts are both supported: the sign-in page asks for the region.
 
+## Bookla MCP server
+
+This repository holds the marketplace packages, not the server's source code. The server is listed in the [MCP Registry](https://registry.modelcontextprotocol.io/v0/servers?search=com.bookla) as `com.bookla/merchant` and can be used two ways:
+
+- **Hosted (recommended):** add `https://mcp.bookla.com/mcp` as a remote MCP server in any client that supports OAuth. The merchant signs in as above.
+- **Local:** run the [`@bookla-app/mcp`](https://www.npmjs.com/package/@bookla-app/mcp) npm package over stdio with a merchant API key:
+
+  ```json
+  {
+    "mcpServers": {
+      "bookla": {
+        "command": "npx",
+        "args": ["-y", "@bookla-app/mcp"],
+        "env": {
+          "BOOKLA_API_KEY": "<merchant API key from Settings > API Keys>",
+          "BOOKLA_API_URL": "https://eu.bookla.com/api/v1"
+        }
+      }
+    }
+  }
+  ```
+
+  Use `https://us.bookla.com/api/v1` for US accounts.
+
 ## Providers
 
 | Directory | Marketplace | Status |
@@ -33,16 +57,13 @@ Some marketplaces read a manifest from a fixed path at the repo root, as Cursor 
 
 ## Shared skill
 
-`skills/bookla-merchant/SKILL.md` is copied into each provider's plugin, because each marketplace packages only its own plugin directory. Edit all copies together. `scripts/check-shared.sh` fails if they differ.
+Each plugin carries its own copy of the `bookla-merchant` skill (`<provider>/bookla/skills/bookla-merchant/SKILL.md`), because each marketplace packages only its own plugin directory. Edit all copies together. `scripts/check-shared.sh` fails if they differ.
 
 ## Adding a provider
 
 1. Create `<provider>/` with that marketplace's package format.
 2. Point the MCP config at `https://mcp.bookla.com/mcp`.
-3. Check how the client gets an OAuth client ID:
-   - **CIMD**, e.g. Antigravity: add its metadata host to `MCP_OAUTH_CIMD_ALLOWED_HOSTS` in the platform config.
-   - **Fixed client ID**, e.g. Cursor: add a public static client in the platform config (`MCP_OAUTH_*_CLIENT_ID`).
-   - **DCR only**: not supported by the Bookla authorization server.
+3. Check how the client gets an OAuth client ID: a Client ID Metadata Document (as Antigravity does) or a fixed public client ID (as Cursor does). Either one must be enabled on the Bookla authorization server first. Dynamic client registration is not supported.
 4. Add a row to the table above.
 
 ## Support
